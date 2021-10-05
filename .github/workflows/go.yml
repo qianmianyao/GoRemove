@@ -17,14 +17,19 @@ jobs:
       - run: CGO_ENABLED=0 GOOS=linux GOARCH=arm64 go build -o grm_linux_arm64 ./main.go
       - run: CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build -o grm_macOs_amd64 ./main.go
       - run: CGO_ENABLED=0 GOOS=darwin GOARCH=arm64 go build -o grm_macOs_arm64 ./main.go
+      - run: |
+            tar -czf grm_linux_amd64.tar.gz grm_linux_amd64 conf.yml
+            tar -czf grm_linux_arm64.tar.gz grm_linux_arm64 conf.yml
+            tar -czf grm_macOs_amd64.tar.gz grm_macOs_amd64 conf.yml
+            tar -czf grm_macOs_arm64.tar.gz grm_macOs_arm64 conf.yml
 
       - name: Release
         uses: softprops/action-gh-release@v1
         with: # 将下述可执行文件 release 上去
           files: |
-            zip grm_linux_amd64.zip grm_linux_amd64 conf.yml
-            zip grm_linux_arm64.zip grm_linux_arm64 conf.yml
-            zip grm_macOs_amd64.zip grm_macOs_amd64 conf.yml
-            zip grm_macOs_arm64.zip grm_macOs_arm64 conf.yml
+            grm_linux_amd64.tar.gz
+            grm_linux_arm64.tar.gz
+            grm_macOs_amd64.tar.gz
+            grm_macOs_arm64.tar.gz
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
