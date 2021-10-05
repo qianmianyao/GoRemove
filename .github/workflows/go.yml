@@ -23,8 +23,8 @@ jobs:
         with: # 将下述可执行文件 release 上去
           files: |
             zip grm_linux_amd64.zip grm_linux_amd64 conf.yml
-            zip -czf grm_linux_arm64.zip grm_linux_arm64 conf.yml
-            zip -czf grm_macOs_amd64.zip grm_macOs_amd64 conf.yml
-            zip -czf grm_macOs_arm64.zip grm_macOs_arm64 conf.yml
+            zip grm_linux_arm64.zip grm_linux_arm64 conf.yml
+            zip grm_macOs_amd64.zip grm_macOs_amd64 conf.yml
+            zip grm_macOs_arm64.zip grm_macOs_arm64 conf.yml
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
