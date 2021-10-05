@@ -16,6 +16,7 @@ type conf struct {
 
 // 读取配置
 func (c *conf) readConf() int {
+
 	confPath := homePath() + "/.config/goremove/conf.yml" // 获取到用户的家目录
 	yamlFile, err := ioutil.ReadFile(confPath)
 	if err != nil {

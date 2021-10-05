@@ -1,8 +1,8 @@
 package main
 
 import (
+	"grm/mainFunc"
 	"os"
-	"remove_Go/mainFunc"
 )
 
 func main() {
