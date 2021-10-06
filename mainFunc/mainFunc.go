@@ -111,8 +111,10 @@ Options:
 	-b		Restore files
 	init	Initial chemical tool;
 Config:
-	Path: Configuration file path /etc/grm/conf.yml;
+	Path: Configuration file path ~/.config/goremove/conf.yml;
 	Size: Files larger than size will be deleted and will not be reclaimed;
+Version:
+	grm 1.2
 
 `)
 }
